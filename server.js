@@ -6,6 +6,9 @@ var express = require('express')
     , https = require('https')
     , config = require('./config.json')
 
+config.client_id = (process.env.CLIENT_ID || config.client_id);
+config.client_secret = (process.env.CLIENT_SECRET || config.client_secret);
+
 if (!config.client_id || !config.client_secret)
     throw new Error('config.json must contain an object with client_id and client_secret properties.')
 
